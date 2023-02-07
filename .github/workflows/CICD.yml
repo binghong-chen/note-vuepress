@@ -19,22 +19,16 @@ jobs:
           npm run build    # 执行打包
           cd ./note/.vuepress/ # 切换到 dist 目录
           tar -czvf dist.tar dist # 目标文件进行打包
-      - name: Deploy 🚀
-        uses: cross-the-world/ssh-scp-ssh-pipelines@latest # 因为构建之后，需要把代码上传到服务器上，所以需要连接到ssh，并且做一个安全拷贝(security copy)操作
+      # 部署到服务器
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
-        with:
-         host: ${{ secrets.DR_HOST }}
-         user: ${{ secrets.DR_USER }}
-         pass: ${{ secrets.DR_PASS }}
-         port: ${{ secrets.DR_PORT }}
-         connect_timeout: 10s
-         first_ssh: |
-            rm -rf /root/dist
-            mkdir -p /root/dist
-         scp: |
-           './note/.vuepress/dist.tar' => /root
-         last_ssh: |
-            cd /root # 切换到部署目录
-            tar -xzvf dist.tar  # 将 tar 打包文件进行解压到当前部署目录
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }} # 服务器的key
+          ARGS: "-avz --delete"  # rsync 参数   https://einverne.github.io/post/2017/07/rsync-introduction.html
+          SOURCE: ./note/.vuepress/dist # 这是要复制到服务器的文件夹名称
+          REMOTE_HOST: ${{ secrets.DR_HOST }} # 你的服务器公网地址
+          REMOTE_PORT: ${{ secrets.DR_PORT }} # 你的服务器公网端口
+          REMOTE_USER: ${{ secrets.DR_USER }} # 服务器登录用户名
+          TARGET: ${{ secrets.DR_TARGET }} # 放到的目标地址
+
+
