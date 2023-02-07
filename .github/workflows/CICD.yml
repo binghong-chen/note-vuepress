@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
-          pnpm install  # 安装依赖
-          pnpm build    # 执行打包
+          npm install  # 安装依赖
+          npm build    # 执行打包
           cd ./note/.vuepress/ # 切换到 dist 目录
           tar -czvf dist.tar dist # 目标文件进行打包
       - name: Deploy 🚀
