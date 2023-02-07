@@ -14,7 +14,9 @@ jobs:
         run: |
           cd ..
           ls
+          pwd
           ls note-vuepress
+          ls -a
           npm install  # 安装依赖
           npm build    # 执行打包
           cd ./note/.vuepress/ # 切换到 dist 目录
