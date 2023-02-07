@@ -23,7 +23,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }} # 服务器的key
           ARGS: "-avz --delete"  # rsync 参数   https://einverne.github.io/post/2017/07/rsync-introduction.html
-          SOURCE: ./note/.vuepress/dist # 这是要复制到服务器的文件夹名称
+          SOURCE: note/.vuepress/dist # 这是要复制到服务器的文件夹名称
           REMOTE_HOST: ${{ secrets.DR_HOST }} # 你的服务器公网地址
           REMOTE_PORT: ${{ secrets.DR_PORT }} # 你的服务器公网端口
           REMOTE_USER: ${{ secrets.DR_USER }} # 服务器登录用户名
