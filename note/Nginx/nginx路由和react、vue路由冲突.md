@@ -20,10 +20,10 @@ https://www.jianshu.com/p/51ba2bec00c7
 
 批改项目是为每个子路由都生成了index.html，太浪费了
 
-![image-20230201215150488](/Users/chenbinghong/Workspace/CBH/note/Nginx/assets/image-20230201215150488.png)
+![image-20230201215150488](./assets/image-20230201215150488.png)
 
 
 
-![image-20230201215737199](/Users/chenbinghong/Workspace/CBH/note/Nginx/assets/image-20230201215737199.png)
+![image-20230201215737199](./assets/image-20230201215737199.png)
 
 存在大量历史文件，以后发布时，需要注意清除原有文件

@@ -53,7 +53,7 @@ tsc 2-1-1.ts
 
 
 
-![image-20230206131812595](/Users/chenbinghong/Workspace/CBH/note/Typescript/assets/image-20230206131812595.png)
+![image-20230206131812595](./assets/image-20230206131812595.png)
 
 首先在电脑全局已经安装过ts后，文件夹中执行`tsc --init`，运行后，文件夹中会生成一个`tsconfig.json`文件。
 
