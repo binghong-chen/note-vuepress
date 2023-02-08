@@ -8,5 +8,3 @@ https://github.com/flutter/flutter/issues/118295
 brew remove cocoapods
 sudo gem install cocoapods -v 1.11.2
 ```
-
-又遇到新问题
