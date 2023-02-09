@@ -57,3 +57,12 @@ export default xxx
 <font color=gold>umi的配置都是用的ES6的，会在node中运行</font>
 
 <img src="./assets/image-20230209010438241.png" alt="image-20230209010438241" style="zoom: 33%;" />
+
+可以参考：
+
+https://segmentfault.com/a/1190000017318527
+
+让 `node` 运行 `es6` 模块文件的方式有两种：
+
+1. 转码 `es6` 模块为 `commonjs` 模块
+2. `hook` `node` 的 `require` 机制，直接让 `node` 的 `require` 加载 `import/export`
