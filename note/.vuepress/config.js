@@ -5,18 +5,25 @@ const BASE_PATH = "./note";
 let fileTotal = 0
 let nonNullFileTotal = 0
 
+// 暂时排除的菜单
+const exclude = [
+  '其他',
+  '安全',
+  '.git',
+  '.vuepress',
+  '.gitignore',
+  '.DS_Store',
+  'assets',
+]
+
 function visit(path) {
   var children = [];
   const fullPath = `${BASE_PATH}/${path}`;
   var stats = fs.statSync(fullPath);
   if (stats.isDirectory()) {
-    var files = fs.readdirSync(fullPath);
+    var files = fs.readdirSync(fullPath).sort((a, b) => a < b ? -1 : 1);
     files.forEach((file) => {
-      if (file === ".git") return;
-      if (file === ".vuepress") return;
-      if (file === ".gitignore") return;
-      if (file === ".DS_Store") return;
-      if (file === "assets") return;
+      if (exclude.includes(file)) return;
       let subPath = `${path}/${file}`;
       if (subPath.startsWith('/')) subPath = subPath.substring(1)
       const fullSubPath = `${BASE_PATH}/${subPath}`;
