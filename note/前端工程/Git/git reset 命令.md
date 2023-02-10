@@ -1,6 +1,5 @@
 # git reset 命令
-
-https://www.runoob.com/git/git-reset.html
+[https://www.runoob.com/git/git-reset.html](https://www.runoob.com/git/git-reset.html)
 
 git reset 用于回退版本，可以指定退回某一次提交的版本
 
@@ -37,7 +36,7 @@ git reset --soft HEAD~3		# 回退上上上一个版本
 **--hard** 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前所有提交：
 
 ```sh
-git reset --soft HEAD
+git reset --hard HEAD
 ```
 
 实例：
@@ -46,6 +45,12 @@ git reset --soft HEAD
 git reset --hard HEAD~3						# 回退上上上一个版本
 git reset --hard bae128						# 回退到某个版本
 git reset --hard origin/master		# 将本地状态回退到远程的一样
+```
+
+注意：push到远程仓库时，可能会报错，我做了如下强制push处理，可能还有其他方法：
+
+```sh
+git push -f
 ```
 
 **HEAD 说明**：
@@ -77,8 +82,7 @@ git reset HEAD~1
 会报错
 
 # git reset 3种方式
-
-https://blog.csdn.net/qinwenjng120/article/details/104945015
+[https://blog.csdn.net/qinwenjng120/article/details/104945015](https://blog.csdn.net/qinwenjng120/article/details/104945015)
 
 |         | git reset产生影响 |                |          | 表现                                        |                                                              |
 | ------- | ----------------- | -------------- | -------- | ------------------------------------------- | ------------------------------------------------------------ |
