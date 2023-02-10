@@ -17,9 +17,10 @@ function visit(path) {
       if (file === ".gitignore") return;
       if (file === ".DS_Store") return;
       if (file === "assets") return;
-      const subPath = `${path}/${file}`;
-      const fullPath = `${BASE_PATH}/${subPath}`;
-      stats = fs.statSync(fullPath);
+      let subPath = `${path}/${file}`;
+      if (subPath.startsWith('/')) subPath = subPath.substring(1)
+      const fullSubPath = `${BASE_PATH}/${subPath}`;
+      stats = fs.statSync(fullSubPath);
       if (stats.isDirectory()) {
         const thisChildren = visit(subPath);
         if (!thisChildren.length) return;
@@ -33,7 +34,7 @@ function visit(path) {
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
         fileTotal++
-        let content = fs.readFileSync(fullPath, { encoding: "utf-8" });
+        let content = fs.readFileSync(fullSubPath, { encoding: "utf-8" });
         // 过滤空文件
         if (
           content.split("\n").filter((line) => {
@@ -46,7 +47,7 @@ function visit(path) {
             );
           }).length <= 2
         ) {
-          console.log(`${fullPath} 为空`);
+          console.log(`${fullSubPath} 为空`);
           return;
         }
         // tag 中文符号正规化
@@ -56,12 +57,11 @@ function visit(path) {
           /(\n\s*)((https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])/g,
           "$1[$2]($2)"
         );
-        fs.writeFileSync(fullPath, content);
+        fs.writeFileSync(fullSubPath, content);
 
         nonNullFileTotal++
 
         if (file === "README.md") {
-          console.log(fullPath)
           return;
         }
         file = file.substring(0, file.lastIndexOf("."));
