@@ -1,5 +1,5 @@
 # JavaScript深入之new的模拟实现
-https://github.com/mqyqingfeng/Blog/issues/13
+[https://github.com/mqyqingfeng/Blog/issues/13](https://github.com/mqyqingfeng/Blog/issues/13)
 ## new
 一句话介绍new：
 

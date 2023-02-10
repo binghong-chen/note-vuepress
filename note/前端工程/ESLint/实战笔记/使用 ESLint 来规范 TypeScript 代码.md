@@ -1,12 +1,12 @@
 # 使用 ESLint 来规范 TypeScript 代码
 
-https://m.imooc.com/wiki/typescriptlesson-tslinteslint
+[https://m.imooc.com/wiki/typescriptlesson-tslinteslint](https://m.imooc.com/wiki/typescriptlesson-tslinteslint)
 
-https://typescript-eslint.io/
+[https://typescript-eslint.io/](https://typescript-eslint.io/)
 
-https://github.com/typescript-eslint/typescript-eslint
+[https://github.com/typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
 
-https://main--typescript-eslint.netlify.app/getting-started
+[https://main--typescript-eslint.netlify.app/getting-started](https://main--typescript-eslint.netlify.app/getting-started)
 
 ## 安装环境
 

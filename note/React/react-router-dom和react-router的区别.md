@@ -1,6 +1,6 @@
 # react-router-dom和react-router的区别
 
-https://juejin.cn/post/7023587613852303373
+[https://juejin.cn/post/7023587613852303373](https://juejin.cn/post/7023587613852303373)
 
 1. react-router-dom是在react-router的基础上开发的，react-router-dom中很多组件都是从react-dom中直接导出的。所以安装了react-router-dom后就不用安装react-router；
 2. 在react-router的基础上，额外提供了BrowserRouter,HashRouter,Link,NavLink组件，可以用于路由跳转。其中BrowserRouter,HashRouter用于替代react-router中的Router组件；Link,NavLink的作用类似于a标签；
@@ -22,7 +22,7 @@ https://juejin.cn/post/7023587613852303373
 
 
 
-https://www.jianshu.com/p/46219ae64bd6
+[https://www.jianshu.com/p/46219ae64bd6](https://www.jianshu.com/p/46219ae64bd6)
 
 React-router提供了核心api。如Router、Route、Switch等，但没有提供有关dom操作进行路由跳转的api
 

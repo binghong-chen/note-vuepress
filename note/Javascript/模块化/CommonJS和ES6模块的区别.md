@@ -1,6 +1,6 @@
 # CommonJS和ES6模块的区别
 
-https://juejin.cn/post/6844904067651600391
+[https://juejin.cn/post/6844904067651600391](https://juejin.cn/post/6844904067651600391)
 
 **CommonJS** ，到后来的**AMD**和**CMD**，再到今天的**ES6模块**化方案。
 

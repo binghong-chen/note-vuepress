@@ -1,6 +1,6 @@
 # TLS1.2 PreMasterSecret And MasterSecret
 
-https://www.laoqingcai.com/tls1.2-premasterkey/
+[https://www.laoqingcai.com/tls1.2-premasterkey/](https://www.laoqingcai.com/tls1.2-premasterkey/)
 
 在SSL/TLS中，Pre Master Secret（预主密钥）作用至关重要，无论是RSA加密算法、DH密钥交换算法，最终都是为了交换或者协商出Pre Master Secret。通过Pre Master Secret，结合其他参数，计算出Master Secret，作为整个会话的密钥。
 

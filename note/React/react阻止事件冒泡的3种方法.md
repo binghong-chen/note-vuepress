@@ -1,6 +1,6 @@
 # react阻止事件冒泡的3种方法
 
-https://www.jianshu.com/p/0ff38a3ac40c
+[https://www.jianshu.com/p/0ff38a3ac40c](https://www.jianshu.com/p/0ff38a3ac40c)
 
 在实现一个常见的需求，也就是类似于下拉菜单，点击菜单以外的地方会隐藏菜单，这个过程中遇到了问题。
 
@@ -122,7 +122,7 @@ react app click
 
 通过上面的例子，我们就能大致了解这个函数的作用
 
-https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation
+[https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopImmediatePropagation)
 
 ```html
 <!DOCTYPE html>

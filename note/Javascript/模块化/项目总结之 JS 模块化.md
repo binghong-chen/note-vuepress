@@ -60,7 +60,7 @@ export default xxx
 
 可以参考：
 
-https://segmentfault.com/a/1190000017318527
+[https://segmentfault.com/a/1190000017318527](https://segmentfault.com/a/1190000017318527)
 
 让 `node` 运行 `es6` 模块文件的方式有两种：
 

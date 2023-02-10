@@ -1,6 +1,6 @@
 # HTTP 请求跨域问题
 
-https://www.zhihu.com/question/440812545/answer/2379426038
+[https://www.zhihu.com/question/440812545/answer/2379426038](https://www.zhihu.com/question/440812545/answer/2379426038)
 
 ## 1. 跨域的原理
 

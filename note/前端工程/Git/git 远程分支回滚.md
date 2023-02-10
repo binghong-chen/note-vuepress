@@ -1,6 +1,6 @@
 # git 远程分支回滚
 
-https://www.jianshu.com/p/efaad905258c
+[https://www.jianshu.com/p/efaad905258c](https://www.jianshu.com/p/efaad905258c)
 
 git代码库回滚: 指的是将代码库某分支退回到以前的某个commit id
 

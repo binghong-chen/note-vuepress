@@ -1,6 +1,6 @@
 # 高频react面试题20道（附详解）
 
-https://blog.csdn.net/xgangzai/article/details/120375992
+[https://blog.csdn.net/xgangzai/article/details/120375992](https://blog.csdn.net/xgangzai/article/details/120375992)
 
 ## 1. React 事件机制
 
@@ -260,7 +260,7 @@ const BlogPostWithSubscription = withSubscription(BlogPost, (DataSource, props) 
 
 <font color='red'>因为我很少用class组件，这个钩子更是没有用过，所以有很多问题不是很清楚，这个问题我忽略</font>，感兴趣可以看看👇官网
 
-https://zh-hans.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops
+[https://zh-hans.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops](https://zh-hans.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops)
 
 ## 11. 哪些方法会触发React重新渲染？重新渲染render会做些什么？
 

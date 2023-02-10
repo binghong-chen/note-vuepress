@@ -10,13 +10,13 @@ location / {
 }
 ```
 
-https://juejin.cn/post/6844903942942359560
+[https://juejin.cn/post/6844903942942359560](https://juejin.cn/post/6844903942942359560)
 
-https://blog.csdn.net/qq_34817440/article/details/121501802
+[https://blog.csdn.net/qq_34817440/article/details/121501802](https://blog.csdn.net/qq_34817440/article/details/121501802)
 
-https://router.vuejs.org/zh/guide/essentials/history-mode.html
+[https://router.vuejs.org/zh/guide/essentials/history-mode.html](https://router.vuejs.org/zh/guide/essentials/history-mode.html)
 
-https://www.jianshu.com/p/51ba2bec00c7
+[https://www.jianshu.com/p/51ba2bec00c7](https://www.jianshu.com/p/51ba2bec00c7)
 
 批改项目是为每个子路由都生成了index.html，太浪费了
 

@@ -1,6 +1,6 @@
 # npm查看全局安装过的包
 
-https://www.jianshu.com/p/a741edd16436
+[https://www.jianshu.com/p/a741edd16436](https://www.jianshu.com/p/a741edd16436)
 
 ```sh
 npm list -g --depth 0

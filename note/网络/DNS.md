@@ -22,7 +22,7 @@ tld名称服务器
 
 ## Linux查看DNS服务器及设置DNS服务器的方法
 
-https://www.jb51.net/linuxjishu/287618.html
+[https://www.jb51.net/linuxjishu/287618.html](https://www.jb51.net/linuxjishu/287618.html)
 
 ```sh
 cat /etc/resolv.conf
@@ -71,12 +71,12 @@ A Canonical Name or CNAME record is a type of DNS record that maps an alias name
 
 
 
-https://blog.csdn.net/Wu_Roc/article/details/77168426
+[https://blog.csdn.net/Wu_Roc/article/details/77168426](https://blog.csdn.net/Wu_Roc/article/details/77168426)
 
 www.a.shifen.com 是 baidu.com的CNAME
 
 CNAME和A记录的区别
 
-https://developer.aliyun.com/article/311926
+[https://developer.aliyun.com/article/311926](https://developer.aliyun.com/article/311926)
 
-https://zhuanlan.zhihu.com/p/91769762
+[https://zhuanlan.zhihu.com/p/91769762](https://zhuanlan.zhihu.com/p/91769762)

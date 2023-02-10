@@ -1,6 +1,6 @@
 # 深入理解 TypeScript
 
-https://jkchao.github.io/typescript-book-chinese/
+[https://jkchao.github.io/typescript-book-chinese/](https://jkchao.github.io/typescript-book-chinese/)
 
 ## TIPS
 
@@ -22,7 +22,7 @@ https://jkchao.github.io/typescript-book-chinese/
 
 `Greyhound ≼ Dog ≼ Animal`
 
-`Greyhound`（灰狗）是·Dog·（狗）的子类型，而·Dog·这是·Animal·（动物）的子类型。由于子类型通常是可传递的，因此我们也称·Greyhound·是·Animal·的子类型。
+`Greyhound`（灰狗）是`Dog`（狗）的子类型，而`Dog`这是`Animal`（动物）的子类型。由于子类型通常是可传递的，因此我们也称`Greyhound`是`Animal`的子类型。
 
 **问题**：以下哪种类型是·Dog → Dog·的子类型呢？
 
@@ -31,13 +31,13 @@ https://jkchao.github.io/typescript-book-chinese/
 3. `Animal → Animal`
 4. `Animal → Greyhound`
 
-让我们来思考一下如何解答这个问题。首先我们假设·f·是一个以·Dog → Dog·为参数的函数。它的返回值并不重要，为了具体描述问题，我们假设函数结构体是这样的：`f: (Dog → Dog) → string`。
+让我们来思考一下如何解答这个问题。首先我们假设`f`是一个以·Dog → Dog·为参数的函数。它的返回值并不重要，为了具体描述问题，我们假设函数结构体是这样的：`f: (Dog → Dog) → string`。
 
-现在我想给函数·f·传入某个函数·g·来调用。我们来瞧瞧·g·为以上四种类型时，会发生什么情况。
+现在我想给函数`f`传入某个函数`g`来调用。我们来瞧瞧`g`为以上四种类型时，会发生什么情况。
 
 **1. 我们假设`g : Greyhound → Greyhound`， `f(g)` 的类型是否安全？**
 
-不安全，因为在f内调用它的参数g函数时，使用的参数可能是一个不同于灰狗但又是·Dog·的子类型，例如·GermanShepherd·（牧羊犬）
+不安全，因为在f内调用它的参数g函数时，使用的参数可能是一个不同于灰狗但又是`Dog`的子类型，例如`GermanShepherd`（牧羊犬）
 
 **2. 我们假设 `g : Greyhound → Animal`， `f(g)` 的类型是否安全？**
 
@@ -45,11 +45,11 @@ https://jkchao.github.io/typescript-book-chinese/
 
 **3. 我们假设 `g : Animal → Animal`， `f(g)` 的类型是否安全？**
 
-不安全。因为·f·有可能在调用完参数之后，让返回值，也就是·Animal·（动物）狗叫。并非所有动物都会狗叫。
+不安全。因为`f`有可能在调用完参数之后，让返回值，也就是`Animal`（动物）狗叫。并非所有动物都会狗叫。
 
 **4. 我们假设 `g : Animal → Greyhound`， `f(g)` 的类型是否安全？**
 
-是的，它的类型是安全的。首先·f·可能会以任何狗的品种来作为参数调用，而所有狗都是动物。其次，它可能会假设结果是一条狗，而所有灰狗都是狗。
+是的，它的类型是安全的。首先`f`可能会以任何狗的品种来作为参数调用，而所有狗都是动物。其次，它可能会假设结果是一条狗，而所有灰狗都是狗。
 
 #### 展开讲讲？
 

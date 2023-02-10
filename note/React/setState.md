@@ -1,6 +1,6 @@
 # setState
 
-https://juejin.cn/post/7182382408807743548
+[https://juejin.cn/post/7182382408807743548](https://juejin.cn/post/7182382408807743548)
 
 ## 自动批处理
 
@@ -14,7 +14,7 @@ setState是一个异步方法，但是在setTimeout/setInterval等定时器里�
 
 实现机制类似于vue的$nextTick和浏览器的事件循环机制，每个setState都会被react加入到任务队列，多次对同一个state使用setState只会返回最后一次的结果，因为它不是立即就更新，而是先放在队列中，等时机成熟再执行批量更新。React18以后，使用了createRoot api后，所有setState都是异步批量执行的
 
-https://juejin.cn/post/7061588533214969892
+[https://juejin.cn/post/7061588533214969892](https://juejin.cn/post/7061588533214969892)
 
 setState本身代码的执行肯定是同步的，这里的异步是指是多个state会合成到一起进行批量更新。同步还是异步取决于它被调用的环境。
 

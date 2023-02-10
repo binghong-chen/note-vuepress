@@ -76,5 +76,5 @@ Linux traceroute命令用于显示数据包到主机间的路径。
   | :--------- | :------------ | :----------- | :--- | :-------------- | :------------ |
   | 121.14.7.8 | 121.14.71.255 | 中国广东广州 | 电信 | 255.255.128.0   | 121.14.0.0/17 |
 
-https://einverne.github.io/post/2017/06/traceroute.html
+[https://einverne.github.io/post/2017/06/traceroute.html](https://einverne.github.io/post/2017/06/traceroute.html)
 

@@ -1,6 +1,6 @@
 # HTTP Cache如何计算Age
 
-https://blog.csdn.net/woxueliuyun/article/details/41077671
+[https://blog.csdn.net/woxueliuyun/article/details/41077671](https://blog.csdn.net/woxueliuyun/article/details/41077671)
 
 这里的Age指的是响应头Age，下面内容有部分翻译，也有部分自己的理解，欢迎讨论。
 

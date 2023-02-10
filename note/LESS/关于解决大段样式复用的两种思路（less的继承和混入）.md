@@ -1,5 +1,5 @@
 # 关于解决大段样式复用的两种思路（less的继承和混入）
-https://blog.csdn.net/qq_41883423/article/details/118335674
+[https://blog.csdn.net/qq_41883423/article/details/118335674](https://blog.csdn.net/qq_41883423/article/details/118335674)
 
 ## 1. 继承
 

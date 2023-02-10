@@ -1,6 +1,6 @@
 # create-react-app 工程，如何修改react端口号？
 
-https://blog.51cto.com/u_15328720/3384510
+[https://blog.51cto.com/u_15328720/3384510](https://blog.51cto.com/u_15328720/3384510)
 
 `3000`端口是`webpack`配置里写的，可以通过传递一个`PORT`全局变量，来修改这个端口。当然，您还可以再`node_modules/react-scripts/`目录下面，批量搜索`3000`字样，这个操作比较暴力。
 

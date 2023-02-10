@@ -1,10 +1,10 @@
 # git提交规范---前缀
 
-https://blog.csdn.net/Run_ning_/article/details/95939643
+[https://blog.csdn.net/Run_ning_/article/details/95939643](https://blog.csdn.net/Run_ning_/article/details/95939643)
 
-https://blog.csdn.net/weixin_42343307/article/details/124911724
+[https://blog.csdn.net/weixin_42343307/article/details/124911724](https://blog.csdn.net/weixin_42343307/article/details/124911724)
 
-https://blog.csdn.net/y491887095/article/details/80594043
+[https://blog.csdn.net/y491887095/article/details/80594043](https://blog.csdn.net/y491887095/article/details/80594043)
 
 1. `feat`：新功能（feature）
 2. `fix`：修补bug

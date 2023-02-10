@@ -1,6 +1,6 @@
 # useReducer学习
 
-https://www.jianshu.com/p/14e429e29798
+[https://www.jianshu.com/p/14e429e29798](https://www.jianshu.com/p/14e429e29798)
 
 类似Redux的功能
 

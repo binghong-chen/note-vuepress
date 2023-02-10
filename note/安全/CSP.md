@@ -1,6 +1,6 @@
 # CSP
 
-https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP
+[https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP)
 
 内容安全策略（CSP）是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本（XSS）和数据注入攻击等。
 

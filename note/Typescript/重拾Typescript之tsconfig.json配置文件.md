@@ -1,6 +1,6 @@
 # 重拾Typescript之tsconfig.json配置文件
 
-https://juejin.cn/post/7078666410339565576
+[https://juejin.cn/post/7078666410339565576](https://juejin.cn/post/7078666410339565576)
 
 ## 遇到问题
 

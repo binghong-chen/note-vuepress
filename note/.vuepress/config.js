@@ -2,6 +2,9 @@ const fs = require("fs");
 
 const BASE_PATH = "./note";
 
+let fileTotal = 0
+let nonNullFileTotal = 0
+
 function visit(path) {
   var children = [];
   const fullPath = `${BASE_PATH}/${path}`;
@@ -29,8 +32,9 @@ function visit(path) {
       }
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
-        // 过滤空文件
+        fileTotal++
         let content = fs.readFileSync(fullPath, { encoding: "utf-8" });
+        // 过滤空文件
         if (
           content.split("\n").filter((line) => {
             line = line.trim();
@@ -54,7 +58,10 @@ function visit(path) {
         );
         fs.writeFileSync(fullPath, content);
 
+        nonNullFileTotal++
+
         if (file === "README.md") {
+          console.log(fullPath)
           return;
         }
         file = file.substring(0, file.lastIndexOf("."));
@@ -65,9 +72,10 @@ function visit(path) {
   return children;
 }
 
-function getMenus() {
-  return visit("");
-}
+const sidebar = visit('')
+
+console.log('文件数目', fileTotal)
+console.log('有效文件数目', nonNullFileTotal)
 
 module.exports = {
   head: [
@@ -95,7 +103,7 @@ module.exports = {
         target: "_blank",
       },
     ],
-    sidebar: getMenus(),
+    sidebar,
   },
   extendMarkdown(md) {
     md.set({ html: true });

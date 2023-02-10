@@ -1,6 +1,6 @@
 # Git 合并多个 commit，保持历史简洁
 
-https://cloud.tencent.com/developer/article/1690638
+[https://cloud.tencent.com/developer/article/1690638](https://cloud.tencent.com/developer/article/1690638)
 
 ## git rebase
 

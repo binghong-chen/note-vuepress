@@ -1,6 +1,6 @@
 # git命令回退方法
 
-https://blog.csdn.net/weixin_73001329/article/details/127648892
+[https://blog.csdn.net/weixin_73001329/article/details/127648892](https://blog.csdn.net/weixin_73001329/article/details/127648892)
 
 我们在使用git命令的时候，有时候误输入命令，导致需要回退到之前的状态。现在针对这种情况做一个汇总：
 

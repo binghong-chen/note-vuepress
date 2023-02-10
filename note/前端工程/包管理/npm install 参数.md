@@ -16,7 +16,7 @@
 - `dependencies`：它包含的依赖包是需要发布到生产环境中的，是项目正常运行必须依赖的包。
 - `devDependencies`：它包含的依赖包只在开发时使用，不用于生产环境，如果只需要项目正常运行，则不必安装这里面的包。
 
-https://blog.csdn.net/lw001x/article/details/124167419
+[https://blog.csdn.net/lw001x/article/details/124167419](https://blog.csdn.net/lw001x/article/details/124167419)
 
 常用参数
 
@@ -29,13 +29,13 @@ https://blog.csdn.net/lw001x/article/details/124167419
 - -w, --workspace          install 命令也是支持多工作区安装的
 - -ws, --workspaces      设置为false时，禁用workspaces
 
-https://main--typescript-eslint.netlify.app/getting-started
+[https://main--typescript-eslint.netlify.app/getting-started](https://main--typescript-eslint.netlify.app/getting-started)
 
 ```sh
 npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 ```
 
-https://m.imooc.com/wiki/typescriptlesson-tslinteslint
+[https://m.imooc.com/wiki/typescriptlesson-tslinteslint](https://m.imooc.com/wiki/typescriptlesson-tslinteslint)
 
 ```sh
 npm install -d eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
