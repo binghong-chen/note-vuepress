@@ -56,6 +56,8 @@ export default xxx
 
 <font color=gold>umi的配置都是用的ES6的，会在node中运行</font>
 
+在 ES6 中 this 是 undefined
+
 <img src="./assets/image-20230209010438241.png" alt="image-20230209010438241" style="zoom: 33%;" />
 
 可以参考：
