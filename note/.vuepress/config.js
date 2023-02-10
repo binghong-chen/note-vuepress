@@ -18,9 +18,11 @@ function visit(path) {
       const fullPath = `${BASE_PATH}/${subPath}`;
       stats = fs.statSync(fullPath);
       if (stats.isDirectory()) {
+        const thisChildren = visit(subPath);
+        if (!thisChildren.length) return;
         children.push({
           title: file,
-          children: visit(subPath),
+          children: thisChildren,
           sidebarDepth: 0,
         });
         return;
