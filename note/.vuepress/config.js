@@ -15,7 +15,8 @@ function visit(path) {
       if (file === ".DS_Store") return;
       if (file === "assets") return;
       const subPath = `${path}/${file}`;
-      stats = fs.statSync(`${BASE_PATH}/${subPath}`);
+      const fullPath = `${BASE_PATH}/${subPath}`;
+      stats = fs.statSync(fullPath);
       if (stats.isDirectory()) {
         children.push({
           title: file,
@@ -26,6 +27,31 @@ function visit(path) {
       }
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
+        // 过滤空文件
+        let content = fs.readFileSync(fullPath, { encoding: "utf-8" });
+        if (
+          content.split("\n").filter((line) => {
+            line = line.trim();
+            return (
+              line.length &&
+              !/(https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/.test(
+                line
+              )
+            );
+          }).length <= 2
+        ) {
+          console.log(`${fullPath} 为空`);
+          return;
+        }
+        // tag 中文符号正规化
+        content = content.replace(/·(\w+)·/g, "`$1`");
+        // url 正规化
+        content = content.replace(
+          /\n(\s*)((https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])/g,
+          "$1[$2]($2)"
+        );
+        fs.writeFileSync(fullPath, content);
+
         if (file === "README.md") {
           return;
         }
