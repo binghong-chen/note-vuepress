@@ -47,7 +47,7 @@ function visit(path) {
         content = content.replace(/·(\w+)·/g, "`$1`");
         // url 正规化
         content = content.replace(
-          /\n(\s*)((https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])/g,
+          /(\n\s*)((https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])/g,
           "$1[$2]($2)"
         );
         fs.writeFileSync(fullPath, content);
