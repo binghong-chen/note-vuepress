@@ -2,30 +2,27 @@ const fs = require("fs");
 
 const BASE_PATH = "./note";
 
-let fileTotal = 0
-let nonNullFileTotal = 0
+let fileTotal = 0;
+let nonNullFileTotal = 0;
+
 
 // 暂时排除的菜单
-const exclude = [
-  '其他',
-  '安全',
-  '.git',
-  '.vuepress',
-  '.gitignore',
-  '.DS_Store',
-  'assets',
-]
+const exclude = [".git", ".vuepress", ".gitignore", ".DS_Store", "assets"];
+
+// 发布到网站上，用于找前端工作，排除这些与前端关系不大的菜单
+// 自己在命令行中运行，用于查看文章数，记录到《自律奖惩制》中，不用排除这些菜单
+module.parent !== null && exclude.push(...["其他", "安全"]);
 
 function visit(path) {
   var children = [];
   const fullPath = `${BASE_PATH}/${path}`;
   var stats = fs.statSync(fullPath);
   if (stats.isDirectory()) {
-    var files = fs.readdirSync(fullPath).sort((a, b) => a < b ? -1 : 1);
+    var files = fs.readdirSync(fullPath).sort((a, b) => (a < b ? -1 : 1));
     files.forEach((file) => {
       if (exclude.includes(file)) return;
       let subPath = `${path}/${file}`;
-      if (subPath.startsWith('/')) subPath = subPath.substring(1)
+      if (subPath.startsWith("/")) subPath = subPath.substring(1);
       const fullSubPath = `${BASE_PATH}/${subPath}`;
       stats = fs.statSync(fullSubPath);
       if (stats.isDirectory()) {
@@ -40,7 +37,7 @@ function visit(path) {
       }
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
-        fileTotal++
+        fileTotal++;
         let content = fs.readFileSync(fullSubPath, { encoding: "utf-8" });
         // 过滤空文件
         if (
@@ -66,7 +63,7 @@ function visit(path) {
         );
         fs.writeFileSync(fullSubPath, content);
 
-        nonNullFileTotal++
+        nonNullFileTotal++;
 
         if (file === "README.md") {
           return;
@@ -79,10 +76,10 @@ function visit(path) {
   return children;
 }
 
-const sidebar = visit('')
+const sidebar = visit("");
 
-console.log('文件数目', fileTotal)
-console.log('有效文件数目', nonNullFileTotal)
+console.log("文件数目", fileTotal);
+console.log("有效文件数目", nonNullFileTotal);
 
 module.exports = {
   head: [
