@@ -1,6 +1,6 @@
 # 每天学习一个命令：kill 杀掉进程
 
-https://einverne.github.io/post/2013/01/kill-command.html
+[https://einverne.github.io/post/2013/01/kill-command.html](https://einverne.github.io/post/2013/01/kill-command.html)
 
 Linux 中的 kill 命令用来终止指定的进程（terminate a process）的运行，是 Linux 下进程管理的常用命令。通常，终止一个前台进程可以使用 Ctrl+C 键，但是，对于一个后台进程就须用 kill 命令来终止。此时就需要先使用 ps/pidof/pstree/top 等工具获取进程 PID，然后使用 kill 命令来杀掉该进程。
 

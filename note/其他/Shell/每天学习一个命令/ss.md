@@ -1,6 +1,6 @@
 # 每天学习一个命令：ss socket 数据
 
-https://einverne.github.io/post/2013/01/ss-command-socket-statistics.html
+[https://einverne.github.io/post/2013/01/ss-command-socket-statistics.html](https://einverne.github.io/post/2013/01/ss-command-socket-statistics.html)
 
 ss 命令可以用来获取 socket 信息，可以用来显示和 netstat 类似的信息，但 ss 能够显示更多 TCP 和状态的信息，包括 PACKET，TCP，UDP，DCCP，RAW，和 Unix domain sockes 等等。
 

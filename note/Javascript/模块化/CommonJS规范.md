@@ -1,6 +1,6 @@
 # CommonJS规范
 
-https://javascript.ruanyifeng.com/nodejs/module.html
+[https://javascript.ruanyifeng.com/nodejs/module.html](https://javascript.ruanyifeng.com/nodejs/module.html)
 
 ## 1. 概述
 

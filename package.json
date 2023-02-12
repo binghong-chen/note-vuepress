@@ -2,11 +2,11 @@
   "name": "note-vuepress",
   "version": "1.0.0",
   "description": "",
-  "main": "note/.vuepress/config.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev note",
+    "dev": "npm run check; vuepress dev note",
     "check": "node .",
-    "build": "vuepress build note"
+    "build": "npm run check; vuepress build note"
   },
   "keywords": [],
   "author": "",
