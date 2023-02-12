@@ -1,6 +1,6 @@
 # CommonJS规范
 
-[https://javascript.ruanyifeng.com/nodejs/module.html](https://javascript.ruanyifeng.com/nodejs/module.html)
+https://javascript.ruanyifeng.com/nodejs/module.html
 
 ## 1. 概述
 
@@ -228,7 +228,71 @@ define(function (require, exports, module) {
 
 ### 4.1 基本用法
 
+Node使用CommonJS模块规范，内置的`require`命令用于加载模块文件。
+
+`require`命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。
+
+```js
+// example.js
+var invisible = function () {
+  console.log('invisible');
+};
+
+exports.message = 'hi';
+
+exports.say = function() {
+  console.log(message);
+};
+```
+
+运行下面的命令，可以输出exports对象。
+
+```js
+var example = require('./example.js');
+console.log(example);
+// {
+//   message: "hi",
+//   say: [Function]
+// }
+```
+
+如果模块输出的是一个函数，那就不能定义在exports对象上面，而要定义在`module.exports`变量上面。
+
+```js
+module.exports = function () {
+  console.log('hello world')
+};
+
+require('./example2.js')();
+```
+
+上面代码中，require命令调用自身，等于是执行`module.exports`，因此会输出 hello world。
+
 ### 4.2 加载规则
+
+`require`命令用于加载文件，后缀名默认为`.js`。
+
+```js
+var foo = require('foo');
+// 等同于
+var foo = require('foo.js');
+```
+
+根据参数的不同格式，`require`命令去不同路径寻找模块文件。
+
+（1）如果参数字符串以“/”开头，则表示加载的是一个位于绝对路径的模块文件。比如，`require('/home/marco/foo.js')`将加载`/home/marco/foo.js`。
+
+（2）如果参数字符串以“./”开头，则表示加载的是一个位于相对路径（<font color=red>跟当前执行脚本的位置相比</font>）的模块文件。比如，`require('./circle')`将加载当前脚本同一目录的`circle.js`。
+
+（3）如果参数字符串不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块（<font color=red>位于Node的系统安装目录中</font>），或者一个位于各级node_modules目录的已安装模块（<font color=red>全局安装或局部安装</font>）。
+
+举例来说，脚本`/home/user/projects/foo.js`执行了`require('bar.js')`命令，Node会依次搜索以下文件。
+
+> - /usr/local/lib/node/bar.js
+> - /home/user/projects/node_modules/bar.js
+> - /home/user/node_modules/bar.js
+> - /home/node_modules/bar.js
+> - /node_modules/bar.js
 
 ### 4.3 目录的加载规则
 
