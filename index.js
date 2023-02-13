@@ -1,23 +1,21 @@
 const fs = require("fs");
-
-const BASE_PATH = "./note";
+const {
+  BASE_PATH,
+  exclude,
+  lineStartByURLRegExp,
+  lineStartByMarkDownURLRegExp,
+} = require("./common");
 
 let fileTotal = 0;
 let validMineFileTotal = 0;
 let validUnMineFileTotal = 0;
 let emptyBodyHeaderTotal = 0;
 
-const urlRegExpStr =
-  "(https?|ftp|file):\\/\\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]";
-const lineStartByURLRegExp = new RegExp(`(\\n\\s*)(${urlRegExpStr})`);      // https://www.baidu.com
-const lineStartByURLRegExp2 = new RegExp(`(\\n\\s*)\\[${urlRegExpStr}\\]`); // [https://www.baidu.com]
-
 function isStartUrl(line) {
-  return lineStartByURLRegExp.test(line) || lineStartByURLRegExp2.test(line);
+  return (
+    lineStartByURLRegExp.test(line) || lineStartByMarkDownURLRegExp.test(line)
+  );
 }
-
-// 暂时排除的菜单
-const exclude = [".git", ".vuepress", ".gitignore", ".DS_Store", "assets"];
 
 const Colors = {
   error: "\x1B[31m%s\x1B[0m", // red
@@ -152,28 +150,20 @@ function visit(path) {
       }
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
-        fileTotal++;
-        let content = fs.readFileSync(fullSubPath, { encoding: "utf-8" });
-
-        if (!check(fullSubPath, content)) return;
-
-        // 发布到网站上，需要 一些 正则化 处理
-        // tag 中文符号正规化
-        content = content.replace(/·(\w+)·/g, "`$1`");
-        // url 正规化
-        content = content.replace(
-          new RegExp(lineStartByURLRegExp, "g"),
-          "$1[$2]($2)"
-        );
-        fs.writeFileSync(fullSubPath, content);
+        if (file === "README.md") return;
+        check(fullSubPath);
       }
     });
   }
 }
 
-visit("");
+if (!module.parent) {
+  visit("");
 
-console.log("文章总数", fileTotal);
-console.log("有效抄写文章数", validUnMineFileTotal);
-console.log("有效原创文章数", validMineFileTotal);
-console.log("正文内容为空的标题数", emptyBodyHeaderTotal);
+  console.log("文章总数", fileTotal);
+  console.log("有效抄写文章数", validUnMineFileTotal);
+  console.log("有效原创文章数", validMineFileTotal);
+  console.log("正文内容为空的标题数", emptyBodyHeaderTotal);
+}
+
+module.exports = check;

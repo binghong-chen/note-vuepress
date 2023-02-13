@@ -220,4 +220,4 @@ define(["./loades6"], function (es6) {
 
 ## 示例代码
 
-[https://github.com/binghong-chen/js-module-demo](https://github.com/binghong-chen/js-module-demo)
+[示例代码](https://github.com/binghong-chen/js-module-demo)

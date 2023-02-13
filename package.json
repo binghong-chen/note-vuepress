@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run check; vuepress dev note",
+    "dev": "npm run formatter; vuepress dev note",
     "check": "node .",
-    "build": "npm run check; vuepress build note"
+    "formatter": "node formatter.js",
+    "build": "npm run formatter; vuepress build note"
   },
   "keywords": [],
   "author": "",

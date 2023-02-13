@@ -1,9 +1,7 @@
 const fs = require("fs");
+const { BASE_PATH, exclude } = require("../../common");
 
-const BASE_PATH = "./note";
-
-// 暂时排除的菜单
-const exclude = [".git", ".vuepress", ".gitignore", ".DS_Store", "assets"];
+const check = require("../../index");
 
 function visit(path) {
   var children = [];
@@ -30,6 +28,7 @@ function visit(path) {
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
         if (file === "README.md") return;
+        if (!check(fullSubPath)) return;
         children.push(subPath);
       }
     });
