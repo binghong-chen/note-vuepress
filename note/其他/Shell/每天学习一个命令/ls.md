@@ -1,6 +1,6 @@
 # 每天学习一个命令：ls
 
-https://www.cnblogs.com/peida/archive/2012/10/23/2734829.html
+[https://www.cnblogs.com/peida/archive/2012/10/23/2734829.html](https://www.cnblogs.com/peida/archive/2012/10/23/2734829.html)
 
 ## 常用参数
 
