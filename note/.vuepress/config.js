@@ -9,13 +9,18 @@ function visit(path) {
   var stats = fs.statSync(fullPath);
   if (stats.isDirectory()) {
     var files = fs.readdirSync(fullPath).sort((a, b) => (a < b ? -1 : 1));
-    files.forEach((file) => {
-      if (exclude.includes(file)) return;
-      let subPath = `${path}/${file}`;
-      if (subPath.startsWith("/")) subPath = subPath.substring(1);
-      const fullSubPath = `${BASE_PATH}/${subPath}`;
-      stats = fs.statSync(fullSubPath);
-      if (stats.isDirectory()) {
+    const filterFiles = files
+      .filter((file) => !exclude.includes(file))
+      .map((file) => {
+        let subPath = `${path}/${file}`;
+        if (subPath.startsWith("/")) subPath = subPath.substring(1);
+        const fullSubPath = `${BASE_PATH}/${subPath}`;
+        return { file, subPath, fullSubPath, stats: fs.statSync(fullSubPath) };
+      });
+    // 先排目录
+    filterFiles
+      .filter(({ stats }) => stats.isDirectory())
+      .forEach(({ file, subPath }) => {
         const thisChildren = visit(subPath);
         if (!thisChildren.length) return;
         children.push({
@@ -23,15 +28,17 @@ function visit(path) {
           children: thisChildren,
           sidebarDepth: 0,
         });
-        return;
-      }
-      if (stats.isFile()) {
-        if (!file.endsWith(".md")) return;
-        if (file === "README.md") return;
-        if (!check(fullSubPath)) return;
-        children.push(subPath);
-      }
-    });
+      });
+    // 再排文件
+    filterFiles
+      .filter(
+        ({ file, fullSubPath, stats }) =>
+          stats.isFile() &&
+          file.endsWith(".md") &&
+          file !== "README.md" &&
+          check(fullSubPath)
+      )
+      .forEach(({ subPath }) => children.push(subPath));
   }
   return children;
 }
