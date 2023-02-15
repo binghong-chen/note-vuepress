@@ -1,7 +1,10 @@
 const fs = require("fs");
+const { exit } = require("process");
 const { BASE_PATH, exclude, lineStartByURLRegExp } = require("./common");
 
 const urlGlobalRegExp = new RegExp(lineStartByURLRegExp, "g");
+
+const tips = [];
 
 function visit(path) {
   const fullPath = `${BASE_PATH}/${path}`;
@@ -22,17 +25,24 @@ function visit(path) {
         if (!file.endsWith(".md")) return;
         let content = fs.readFileSync(fullSubPath, { encoding: "utf-8" });
 
-        // 发布到网站上，需要 一些 正则化 处理
-        // 简单代码框 中文符号 格式化
-        if (/·(\w+)·/.test(content)) {
-          content = content.replace(/·(\w+)·/g, "`$1`");
-          console.log(`${fullSubPath} 完成 简单代码框 中文符号 格式化`);
+        // 一些 格式化 处理
+
+        // 格式化:assets图片使用相对路径
+        if (/\((.+)(?<!\.)\/assets/.test(content)) {
+          content = content.replace(/\((.+)(?<!\.)\/assets/g, "(./assets");
+          tips.push(`${fullSubPath} 完成 格式化:assets图片使用相对路径`);
         }
 
-        // url 格式化
+        // 格式化:简单代码框中文符号"·"替换成"`"
+        if (/·(\w+)·/.test(content)) {
+          content = content.replace(/·(\w+)·/g, "`$1`");
+          tips.push(`${fullSubPath} 完成 简单代码框中文符号"·"替换成"``"`);
+        }
+
+        // 格式化:url识别并转成markdown格式
         if (lineStartByURLRegExp.test(content)) {
           content = content.replace(urlGlobalRegExp, "$1[$2]($2)");
-          console.log(`${fullSubPath} 完成 url 格式化`);
+          tips.push(`${fullSubPath} 完成 格式化:url识别并转成markdown格式`);
         }
 
         fs.writeFileSync(fullSubPath, content);
@@ -42,3 +52,8 @@ function visit(path) {
 }
 
 visit("");
+
+if (tips.length) {
+  tips.forEach(tip => console.log("\x1B[31m%s\x1B[0m", tip));
+  process.exit(1);
+}

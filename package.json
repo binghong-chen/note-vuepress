@@ -7,12 +7,14 @@
     "dev": "npm run formatter; vuepress dev note",
     "check": "node .",
     "formatter": "node formatter.js",
-    "build": "npm run formatter; vuepress build note"
+    "build": "npm run formatter; vuepress build note",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "husky": "^8.0.3",
     "vuepress": "^1.9.8"
   }
 }
