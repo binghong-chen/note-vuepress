@@ -68,10 +68,10 @@ function check(path, content) {
     return false;
   }
 
-  if (lines.length < 10) {
+  if (lines.length < 5) {
     console.log(
       Colors.error,
-      `${path} 行数未超过10行, 行数:${lines.length} ${path}`
+      `${path} 行数未超过5行, 行数:${lines.length} ${path}`
     );
     return false;
   }
@@ -81,9 +81,13 @@ function check(path, content) {
     // return false;
   }
 
-  if (lines.join("").length < 200) {
-    console.log(Colors.error, `${path} 字数较少,字数:${content.length} `);
+  if (lines.join("").length < 100) {
+    console.log(Colors.error, `${path} 字数很少,未达到100字,字数:${content.length} `);
     return false;
+  }
+
+  if (lines.join("").length < 200) {
+    console.log(Colors.warn, `${path} 字数较少,字数:${content.length} `);
   }
 
   let isInCode = false;

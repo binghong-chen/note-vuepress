@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { exit } = require("process");
 const { BASE_PATH, exclude, lineStartByURLRegExp } = require("./common");
 
 const urlGlobalRegExp = new RegExp(lineStartByURLRegExp, "g");
@@ -36,7 +35,7 @@ function visit(path) {
         // 格式化:简单代码框中文符号"·"替换成"`"
         if (/·(\w+)·/.test(content)) {
           content = content.replace(/·(\w+)·/g, "`$1`");
-          tips.push(`${fullSubPath} 完成 简单代码框中文符号"·"替换成"``"`);
+          tips.push(`${fullSubPath} 完成 简单代码框中文符号"·"替换成"\`"`);
         }
 
         // 格式化:url识别并转成markdown格式

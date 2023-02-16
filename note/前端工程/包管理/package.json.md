@@ -63,7 +63,7 @@ added 664 packages in 1m
 - `engines`
 - `standard`
 
-`husky` 用来干什么
+`husky` 用来干什么？是git钩子
 
 `jest`
 
