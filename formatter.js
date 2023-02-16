@@ -38,8 +38,8 @@ function visit(path) {
         }
 
         // 格式化:简单代码框中文符号"·"替换成"`"
-        if (/·(\w+)·/.test(content)) {
-          content = content.replace(/·(\w+)·/g, "`$1`");
+        if (/·(.+?)·/.test(content)) {
+          content = content.replace(/·(.+?)·/g, "`$1`");
           tips.push(`${fullSubPath} 完成 简单代码框中文符号"·"替换成"\`"`);
         }
 

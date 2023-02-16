@@ -24,14 +24,14 @@
 
 `Greyhound`（灰狗）是`Dog`（狗）的子类型，而`Dog`这是`Animal`（动物）的子类型。由于子类型通常是可传递的，因此我们也称`Greyhound`是`Animal`的子类型。
 
-**问题**：以下哪种类型是·Dog → Dog·的子类型呢？
+**问题**：以下哪种类型是`Dog → Dog`的子类型呢？
 
-1. ·Greyhound → Greyhound·
+1. `Greyhound → Greyhound`
 2. `Greyhound → Animal`
 3. `Animal → Animal`
 4. `Animal → Greyhound`
 
-让我们来思考一下如何解答这个问题。首先我们假设`f`是一个以·Dog → Dog·为参数的函数。它的返回值并不重要，为了具体描述问题，我们假设函数结构体是这样的：`f: (Dog → Dog) → string`。
+让我们来思考一下如何解答这个问题。首先我们假设`f`是一个以`Dog → Dog`为参数的函数。它的返回值并不重要，为了具体描述问题，我们假设函数结构体是这样的：`f: (Dog → Dog) → string`。
 
 现在我想给函数`f`传入某个函数`g`来调用。我们来瞧瞧`g`为以上四种类型时，会发生什么情况。
 
