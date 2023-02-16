@@ -1,9 +1,8 @@
 const fs = require("fs");
 const { BASE_PATH, exclude, lineStartByURLRegExp } = require("./common");
 
-const urlGlobalRegExp = new RegExp(lineStartByURLRegExp, "g");
-
 const tips = [];
+const urlGlobalRegExp = new RegExp(lineStartByURLRegExp, "g");
 
 function visit(path) {
   const fullPath = `${BASE_PATH}/${path}`;
@@ -25,6 +24,12 @@ function visit(path) {
         let content = fs.readFileSync(fullSubPath, { encoding: "utf-8" });
 
         // 一些 格式化 处理
+        const lines = content.split("\n");
+        // 格式化:文章没有标题 添加标题
+        if (lines.filter((line) => line.startsWith("#")).length === 0) {
+          content = `# ${file.substring(0, file.length - 3)}\n${content}`
+          tips.push(`${fullSubPath} 完成 格式化:文章没有标题 添加标题`);
+        }
 
         // 格式化:assets图片使用相对路径
         if (/\((.+)(?<!\.)\/assets/.test(content)) {
@@ -53,6 +58,6 @@ function visit(path) {
 visit("");
 
 if (tips.length) {
-  tips.forEach(tip => console.log("\x1B[31m%s\x1B[0m", tip));
+  tips.forEach((tip) => console.log("\x1B[31m%s\x1B[0m", tip));
   process.exit(1);
 }

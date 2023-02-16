@@ -7,6 +7,7 @@ const {
 } = require("./common");
 
 let fileTotal = 0;
+let wordsTotal = 0;
 let validMineFileTotal = 0;
 let validUnMineFileTotal = 0;
 let emptyBodyHeaderTotal = 0;
@@ -29,19 +30,6 @@ function getHeaderLevel(line) {
   if (splits[0].match(/[^#]/)) return 0;
   return splits[0].length;
 }
-
-// function testIsHeader(line) {
-//   console.log(line, getHeaderLevel(line));
-// }
-// `
-// #
-// # 1
-// ## 2
-// ###3
-// ### 3
-// ## # 3
-//  # 5
-// `.split('\n').forEach(testIsHeader)
 
 function checkHeader(path, head, bodyLineCount) {
   if (!bodyLineCount) {
@@ -81,13 +69,19 @@ function check(path, content) {
     // return false;
   }
 
-  if (lines.join("").length < 100) {
-    console.log(Colors.error, `${path} 字数很少,未达到100字,字数:${content.length} `);
+  const wordsCount = lines.join("").length;
+  wordsTotal += wordsCount;
+
+  if (wordsCount < 100) {
+    console.log(
+      Colors.error,
+      `${path} 字数很少,未达到100字,字数:${wordsCount} `
+    );
     return false;
   }
 
-  if (lines.join("").length < 200) {
-    console.log(Colors.warn, `${path} 字数较少,字数:${content.length} `);
+  if (wordsCount < 200) {
+    console.log(Colors.warn, `${path} 字数较少,字数:${wordsCount} `);
   }
 
   let isInCode = false;
@@ -155,6 +149,7 @@ function visit(path) {
       if (stats.isFile()) {
         if (!file.endsWith(".md")) return;
         if (file === "README.md") return;
+        fileTotal++;
         check(fullSubPath);
       }
     });
@@ -165,9 +160,26 @@ if (!module.parent) {
   visit("");
 
   console.log("文章总数", fileTotal);
+  console.log("文章总字数", wordsTotal);
   console.log("有效抄写文章数", validUnMineFileTotal);
   console.log("有效原创文章数", validMineFileTotal);
   console.log("正文内容为空的标题数", emptyBodyHeaderTotal);
 }
 
 module.exports = check;
+
+
+// test case
+
+// function testIsHeader(line) {
+//   console.log(line, getHeaderLevel(line));
+// }
+// `
+// #
+// # 1
+// ## 2
+// ###3
+// ### 3
+// ## # 3
+//  # 5
+// `.split('\n').forEach(testIsHeader)
