@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run formatter; vuepress dev note",
+    "dev": "vuepress dev note",
     "check": "node .",
     "formatter": "node formatter.js",
-    "build": "npm run formatter; vuepress build note",
+    "build": "vuepress build note",
     "prepare": "husky install"
   },
   "keywords": [],
