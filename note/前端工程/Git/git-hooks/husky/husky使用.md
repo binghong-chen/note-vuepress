@@ -29,6 +29,6 @@ hint: You can disable this warning with `git config advice.ignoredHook false`.
 chmod +x .husky/pre-commit
 ```
 
-- [ ]  我记得看到文章，可以在 `preinstall` 中做修改权限的事情
+TODO:  我记得看到文章，可以在 `preinstall` 中做修改权限的事情
 
 可以参考npm 的 scripts：https://docs.npmjs.com/cli/v9/using-npm/scripts 做些操作

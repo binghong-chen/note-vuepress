@@ -18,6 +18,42 @@ location / {
 
 [https://www.jianshu.com/p/51ba2bec00c7](https://www.jianshu.com/p/51ba2bec00c7)
 
+
+
+遇到二级目录：
+
+/cpe/workbench
+
+会访问到index.html 但是由于打包引用的js、css的路径是用的index.html下的，nginx代理找不到
+
+![image-20230224105024924](./assets/image-20230224105024924.png)
+
+![image-20230224105105854](./assets/image-20230224105105854.png)
+
+需要在head中使用base
+
+```html
+<base href="/">
+```
+
+把
+
+```html
+<script src="a.js"></srcipt>
+```
+
+定位到domain/下
+
+```html
+<base href="/uid-cpe/">
+```
+
+会定位到 domain/uid-cpe/下
+
+
+
+
+
 批改项目是为每个子路由都生成了index.html，太浪费了
 
 ![image-20230201215150488](./assets/image-20230201215150488.png)

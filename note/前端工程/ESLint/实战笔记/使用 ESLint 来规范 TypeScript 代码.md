@@ -46,7 +46,7 @@ type A = 'a' | "b" | `c`
 ```sh
  npx eslint .
 
-XXX/typescript/typescript-eslint-demo/eslint/1.ts
+xxx/typescript/typescript-eslint-demo/eslint/1.ts
    1:11  warning  'User' is defined but never used                   @typescript-eslint/no-unused-vars
    9:5   warning  'animal' is assigned a value but never used        @typescript-eslint/no-unused-vars
    9:5   error    'animal' is never reassigned. Use 'const' instead  prefer-const

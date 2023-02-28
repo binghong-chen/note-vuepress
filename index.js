@@ -8,6 +8,7 @@ const {
 
 let fileTotal = 0;
 let wordsTotal = 0;
+let todoTotal = 0;
 let validMineFileTotal = 0;
 let validUnMineFileTotal = 0;
 let emptyBodyHeaderTotal = 0;
@@ -43,6 +44,10 @@ function checkHeader(path, head, bodyLineCount) {
 // check("./note/网络/原理/DNS.md");
 function check(path, content) {
   content ||= fs.readFileSync(path, { encoding: "utf-8" });
+
+  const todoMatch = content.match(/TODO/g);
+  todoMatch && (todoTotal += todoMatch.length);
+
   // 非空行
   const lines = content.split("\n").filter((line) => line.trim().length);
   // 过滤空文章
@@ -59,14 +64,13 @@ function check(path, content) {
   if (lines.length < 5) {
     console.log(
       Colors.error,
-      `${path} 行数未超过5行, 行数:${lines.length} ${path}`
+      `${path} 行数过少,未超过5行, 行数:${lines.length}`
     );
     return false;
   }
 
   if (lines.length < 20) {
-    console.log(Colors.warn, `${path} 行数较少, 行数:${lines.length} ${path}`);
-    // return false;
+    console.log(Colors.warn, `${path} 行数较少, 行数:${lines.length}`);
   }
 
   const wordsCount = lines.join("").length;
@@ -75,13 +79,13 @@ function check(path, content) {
   if (wordsCount < 100) {
     console.log(
       Colors.error,
-      `${path} 字数很少,未达到100字,字数:${wordsCount} `
+      `${path} 字数过少,未达到100字,字数:${wordsCount}`
     );
     return false;
   }
 
   if (wordsCount < 200) {
-    console.log(Colors.warn, `${path} 字数较少,字数:${wordsCount} `);
+    console.log(Colors.warn, `${path} 字数较少,字数:${wordsCount}`);
   }
 
   let isInCode = false;
@@ -89,7 +93,7 @@ function check(path, content) {
   let prevHeadLevel = 0;
   let prevBodyLineCount = 0;
   for (let line of lines) {
-    // TODO 需要排除 代码中以 # 开头的 例如: ./note/网络/原理/DNS.md
+    // 需要排除 代码中以 # 开头的 例如: ./note/网络/原理/DNS.md
     if (line.startsWith("```")) {
       isInCode = !isInCode;
       // 必须加上下面的 continue 否则 代码结束行 也算做 正文内容 （prevBodyLineCount）
@@ -161,6 +165,7 @@ if (!module.parent) {
 
   console.log("文章总数", fileTotal);
   console.log("文章总字数", wordsTotal);
+  console.log("TODO总数", todoTotal);
   console.log("有效抄写文章数", validUnMineFileTotal);
   console.log("有效原创文章数", validMineFileTotal);
   console.log("正文内容为空的标题数", emptyBodyHeaderTotal);

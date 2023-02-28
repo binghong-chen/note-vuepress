@@ -1,4 +1,4 @@
-const BASE_PATH = "./note";
+const BASE_PATH = module.path + "/note";
 
 // 暂时排除的菜单
 const exclude = [".git", ".vuepress", ".gitignore", ".DS_Store", "assets"];
