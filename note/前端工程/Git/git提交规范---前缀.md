@@ -13,5 +13,6 @@
 5. `refactor`：重构（既不是新增功能，也不是修改bug的代码变动）
 6. `test`：增加测试
 7. `chore`：构建过程或者辅助工具的变动
+8. `perf`: 优化
 
 如果type未`feat`和`fix`，则改commit将肯定出现在 Change log 中
