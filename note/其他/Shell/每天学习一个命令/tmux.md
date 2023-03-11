@@ -109,7 +109,7 @@ $ sudo yum install tmux
 
 插件
 
-https://github.com/tmux-plugins/tmux-resurrect
+[https://github.com/tmux-plugins/tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 
 ```sh
 $ git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
