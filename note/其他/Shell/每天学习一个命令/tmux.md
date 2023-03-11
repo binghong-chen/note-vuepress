@@ -73,3 +73,59 @@ Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。
 举例来说，帮助命令的快捷键是`Ctrl+b ?`。它的用法是，在 Tmux 窗口中，先按下`Ctrl+b`，再按下`?`，就会显示帮助信息。
 
 然后，按下 ESC 键或`q`键，就可以退出帮助。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tmux 保存
+
+下面的插件需要1.9版本以上（我买的阿里云服务器上tmux是1.8）
+
+安装最新版本的tmux
+
+```bash
+$ sudo yum install http://galaxy4.net/repo/galaxy4-release-7-current.noarch.rpm
+$ sudo yum install tmux
+```
+
+[为yum安装新的repo源,更新tmux到最新版](https://www.dianjilingqu.com/117820.html)
+
+
+
+插件
+
+https://github.com/tmux-plugins/tmux-resurrect
+
+```sh
+$ git clone https://github.com/tmux-plugins/tmux-resurrect ~/clone/path
+```
+
+.tmux.conf
+
+```sh
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+run -b '~/clone/path/resurrect.tmux'
+```
+
+保存
+
+Prefix(Ctrl + b) Ctrl + s
+
+恢复（需要进入tmux，new 或者 attach一个）
+
+Prefix(Ctrl + b) Ctrl + r
